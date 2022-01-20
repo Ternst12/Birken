@@ -1,0 +1,35 @@
+﻿@model Opgave
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-right: 15px; margin-top:15px;">
+                    <span aria-hidden="true"><i class="bi bi-x-circle"></i></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Create">
+                    <div style="display: flex; flex-direction: column;">
+                        <label asp-for="Navn" class="control-label"></label>
+                        <input asp-for="Navn" placeholder="Skriv opgave navnet her" style="border:none;" />
+                    </div>
+                    <div style="display: flex; flex-direction: column;">
+                        <label asp-for="Min_alder" class="control-label"></label>
+                        <input asp-for="Min_alder"  style="border:none;" />
+                    </div>
+                    <div style="display: flex; flex-direction: column;">
+                        <label asp-for="Medarbejder" class="control-label"></label>
+                        <input asp-for="Medarbejder"  placeholder="Skriv hvilken medarbejder som er tilknyttet"  style="border:none;"/>
+                          
+                    </div>
+                    
+                </form>
+            </div>
+            <div style="display: flex; margin-left: 20px; margin-bottom: 20px;">
+                <button type="button" id="modal_button" data-save="modal">Opret</button>
+            </div>
+        </div>
+    </div>
+</div>

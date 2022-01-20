@@ -1,0 +1,163 @@
+﻿@model IEnumerable<Digital_Partners.Models.Medarbejder>
+
+    <head>
+        @{
+            ViewData["Title"] = "ItemsList";
+        }
+    <style>
+        table {
+            margin-top: 0px;
+            border-collapse: collapse;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        }
+
+        thead {
+            position: relative;
+            bottom: 10px;
+          
+        }
+
+        th {
+            color: #6573D8;
+            
+        }
+       
+
+        th, td {
+            padding: 15px 0px;
+            text-align: center;
+        }
+
+        td {
+            border-top: solid 0.5px #D1D1D1;
+            font-size: 20px;
+            font-weight: 500;
+            
+        }
+
+       a {
+           color: white;
+       }
+
+        #button {
+            float: right;
+            background-color: white;
+            height: 50px;
+            width: 120px;
+            border-radius: 25px;
+            border: none;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            display: flex;
+            align-items: center;
+            padding-left: 17px;
+            justify-content: space-between;
+            padding-right: 17px;
+            color: #6573D8;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        #modal_button {
+            float: left;
+            background-color: #6573D8;
+            height: 50px;
+            width: 100px;
+            border-radius: 25px;
+            border: none;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            text-align: center;
+            color: white;
+            font-weight: 500;
+        }
+
+        #edit {
+            margin-right: 20px;
+            height: 36px;
+            width: 90px;
+            display: flex;
+            align-items: center;
+            border-radius: 18px;
+            justify-content: center;
+            background-color: #6573D8;
+            color: white;
+            float: right;
+        }
+
+        #by {
+            height: auto;
+            width: auto;
+            padding: 10px 20px 10px 20px;
+            
+            border-radius: 20px;
+            background-color: #6573D8;
+            color: white;
+        }
+
+
+
+
+    </style>
+
+    </head>
+
+    <body>
+
+        <div id="PlaceHolderHere"></div>
+
+        <div style=" width: 100%; display: flex; flex-direction:column; justify-content: center; align-items: center;">
+            
+            
+            <div style="width: 90%; display: flex; flex-direction:row; justify-content: space-between; margin-bottom: 30px; margin-top: 30px;">
+                <h4 style="float: left; color: #6573D8;">Medarbejdere</h4>
+                <button id="button" type="button"  data-toggle="ajax-modal" data-target="#exampleModalCenter"
+                data-url="@Url.Action("Create")">
+                OPRET <i style="" class="bi bi-plus-circle"></i>
+                </button>
+             </div>  
+
+            <div style="width:90%;"> 
+                @if (Model.Count() > 0)
+                {
+                 
+                    <table style="width: 100%;">
+                        <thead style="background-color: #E0E3F7;">
+                            <tr>
+                                <th style="border-top-left-radius: 5px;">NAVN</th>
+                                <th >ALDER</th>
+                                <th >ADRESSE</th>
+                                <th >POSTNR.</th>
+                                <th >BY</th>
+                                <th >TELEFON</th>
+                                <th style="border-top-right-radius: 5px;">EMAIL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var medarbejder in Model)
+                            {
+                                <tr>
+                                    <td >@medarbejder.Navn<a style="float: right; color: #D1D1D1">&#124;</a></td>
+                                    <td >@medarbejder.Alder<a style="float: right; color: #D1D1D1">&#124;</a></td>
+                                    <td >@medarbejder.Adresse<a style="float: right; color: #D1D1D1">&#124;</a></td>
+                                    <td >@medarbejder.Postnummer<a style="float: right; color: #D1D1D1">&#124;</a></td>
+                                    <td ><d id="by">@medarbejder.By</d><a style="float: right; color: #D1D1D1">&#124;</a></td>
+                                    <td >@medarbejder.Telefonnummer<a style="float: right; color: #D1D1D1">&#124;</a></td>
+                                    <td >@medarbejder.E_mail <div id="edit"><a asp-controller="Medarbejder" asp-action="update" asp-route-Id="@medarbejder.Id"><i class="bi bi-pencil" style="margin-right:5px;"></i>Edit</a></div> </td>
+                                    
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+               
+                }
+                else
+                {
+                    <p> Ingen Medarbejdere fundet </p>
+                }
+
+            </div>
+
+        </div>
+
+       
+
+    </body>

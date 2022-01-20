@@ -1,0 +1,58 @@
+﻿@model Medarbejder
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Tilføj Medarbejder</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Create">
+                    <div style="display: flex; flex-direction: row; justify-content: space-between; padding-left: 15px; padding-right: 15px; margin-top:10px;">
+                        <div style="display: flex; flex-direction: column;">
+                            <label asp-for="Navn" class="control-label"></label>
+                            <input asp-for="Navn" placeholder="Medarbejderens navn" style="border:none;" />
+                        </div>
+                        <div style="display: flex; flex-direction: column;">
+                            <label asp-for="Alder" class="control-label"></label>
+                            <input asp-for="Alder" placeholder="Medarbejderens alder" required style="border: none;" />
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; padding-left: 15px; padding-right: 15px; margin-top: 10px ">
+                        <label asp-for="Adresse"></label>
+                        <input asp-for="Adresse" placeholder="Medarbejderens adresse" style="border: none;" />
+                    </div>
+                    <div style="display: flex; flex-direction: row; justify-content: space-between; padding-left: 15px; padding-right: 15px; margin-top: 10px;">
+                        <div style="display: flex; flex-direction: column;">
+                            <label asp-for="By"></label>
+                            <input asp-for="By" placeholder="Hvilken by" style="border:none;" />
+                        </div>
+                        <div style="display: flex; flex-direction: column;">
+                            <label asp-for="Postnummer"></label>
+                            <input asp-for="Postnummer" placeholder="Byens postnr" style="border:none;" />
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: row; justify-content: space-between; padding-left: 15px; padding-right: 15px; margin-top: 10px;">
+                        <div style="display: flex; flex-direction: column;">
+                            <label asp-for="Telefonnummer"></label>
+                            <input asp-for="Telefonnummer" placeholder="Telefonnummer" style="border:none;" />
+                        </div>
+                        <div style="display: flex; flex-direction: column;">
+                            <label asp-for="E_mail"></label>
+                            <input asp-for="E_mail" placeholder="E-mail adresse" style="border:none;" />
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div style="display: flex; margin-left: 20px; margin-bottom: 20px;">
+                <button type="button" id="modal_button" data-save="modal">Opret</button>
+            </div>
+        </div>
+    </div>
+</div>
+

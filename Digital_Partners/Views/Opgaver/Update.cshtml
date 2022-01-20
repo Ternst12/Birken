@@ -1,0 +1,40 @@
+﻿@model Digital_Partners.Models.Opgave
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div style="display: flex; justify-content: center; align-items: center">
+    <div class="col-md-8">
+        <form method="post" asp-action="Update">
+
+            <input asp-for="Id" hidden />
+
+            <div class="form-group">
+                <label asp-for="Navn" class="control-label"></label>
+                <input asp-for="Navn" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Min_alder" class="control-label"></label>
+                <input asp-for="Min_alder" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Medarbejder" class="control-label"></label>
+                <select asp-for="Medarbejder" asp-items="@ViewBag.TypeDropDown" class="form-control">
+                    <option selected>--Vælg en Medarbejder--</option>
+                </select>
+
+            </div>
+            
+
+           
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-secondary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
